@@ -1,7 +1,7 @@
 # Qubes
 Collection of Qubes OS scripts and configs. 
 
-This setup focuses on privacy. All network traffic must always be routed through VPNs. The use of multiple VPNs, via diasy chaining, is recommended.
+This setup focuses on privacy. All network traffic must always be routed through VPNs. The use of multiple VPNs, via daisy chaining, is recommended.
 
 # Network Setup
 ```mermaid
