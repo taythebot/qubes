@@ -21,6 +21,13 @@ Notes:
 # VPN Setup
 Initial configuration is done using https://github.com/hkbakke/qubes-wireguard. Wireguard is the preferred software. 
 
+## Changing System Time
+**You must change your system time to match your VPN. Failing to do so will reveal your real location to websites.**
+
+This must be done in your template VM. Remember to restart your app-vms afterwards.
+```sh
+sudo timedatectl set-timezone 'Europe/Berlin'
+ ```
 
 # Mullvad
 Use Mullvad's website to generate a Wireguard config. Using multihop is strongly recommended.
