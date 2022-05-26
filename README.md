@@ -15,8 +15,40 @@ Notes:
 - **sys-mullvad should be configured with firewall rules to only allow outgoing connections to Mullvad's IP address**
 - You can add more VPN providers by appending after sys-vpn before any app-vms
 
-# VPN Setup
 
+# Updates proxy
+Updates should be fetched via the vpn qubes and not sys-net. An alternative is to fetch updates over Tor using sys-whonix.
+
+1. Open Qube Manager
+2. Open settings for your vpn qubes (ex: sys-mullvad)
+3. Go to "Services"
+4. Add service "qubes-update-proxy"
+5. Click "OK" to apply settings
+6. Edit file `/etc/qubes-rpc/policy/qubes.UpdatesProxy` in dom0
+
+Sample config
+```
+# Route whonix through sys-whonix
+$tag:whonix-updatevm $default allow,target=sys-whonix
+$tag:whonix-updatevm $anyvm deny
+
+# Route all through sys-whonix
+# $type:TemplateVM $default allow,target=sys-whonix
+
+# Route tagged VM through secondary VPN
+# $tag:work $anyvm allow,target=sys-vpn-2
+
+# Route all through Mullvad
+$type:TemplateVM $default allow,target=sys-mullvad
+
+# Route all through sys-net
+# $type:TemplateVM $default allow,target=sys-net
+
+# Deny all
+$type:TemplateVM $anyvm deny
+```
+
+# VPN Setup
 Initial configuration is done using https://github.com/hkbakke/qubes-wireguard. Wireguard is the preferred software. 
 
 
