@@ -1,5 +1,7 @@
 # Qubes
-Collection of Qubes OS scripts and configs
+Collection of Qubes OS scripts and configs. 
+
+This setup focuses on privacy. All network traffic must always be routed through VPNs. The use of multiple VPNs, via diasy chaining, is recommended.
 
 # Network Setup
 ```mermaid
@@ -21,7 +23,7 @@ Initial configuration is done using https://github.com/hkbakke/qubes-wireguard. 
 
 
 # Mullvad
-Use Mullvad's website to generate a Wireguard config. Using multihop is strongly reccomended.
+Use Mullvad's website to generate a Wireguard config. Using multihop is strongly recommended.
 
 ## Automatic Key Rotation
 
@@ -38,7 +40,7 @@ Notes:
 4. The certificate at https://api.mullvad.net is validated via curl using `--cacert`. If this certificate is updated, the file [certificate.pem](./mullvad/certificate.pem) must be updated. The up to date certificate can be found at [Mullvad's github repository](https://github.com/mullvad/mullvadvpn-app/blob/master/mullvad-api/le_root_cert.pem).
 
 # Additional VPNs
-Additional VPN providers can be setup. It is strongly reccomended to daisy chain VPNs together. Each new VPN should have its own firewall vm. 
+Additional VPN providers can be setup. It is strongly recommended to daisy chain VPNs together. Each new VPN should have its own firewall vm. 
 
 1. Create a new app-vm using the Wireguard template (Remember to check "Provides network access to other qubes" option)
 2. Set Net Qube as sys-vpn
