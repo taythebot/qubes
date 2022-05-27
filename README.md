@@ -51,7 +51,7 @@ The Wireguard key must be rotated every so often to maintain privacy. This can b
 Notes:
 1. Key rotation must be done after a VPN connection is established, due to firewall rules
 2. The existing key in your Wireguard config will be automatically revoked from Mullvad 
-3. Edit the variables in [rotate.sh](./mullvad/rotate.sh) if your Wireguard config is not at `/etc/wireguard/wg0.conf`
+3. Edit the variables in [rotate.sh](./mullvad/rotate.sh) if your Wireguard config is not at `/rw/config/wireguard/wg0.conf`
 4. The certificate at https://api.mullvad.net is validated via curl using `--cacert`. If this certificate is updated, the file [certificate.pem](./mullvad/certificate.pem) must be updated. The up to date certificate can be found at [Mullvad's github repository](https://github.com/mullvad/mullvadvpn-app/blob/master/mullvad-api/le_root_cert.pem).
 
 # Additional VPNs
