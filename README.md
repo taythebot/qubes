@@ -17,9 +17,17 @@ Notes:
 - **sys-mullvad should be configured with firewall rules to only allow outgoing connections to Mullvad's IP address**
 - You can add more VPN providers by appending after sys-vpn before any app-vms
 
-
 # VPN Setup
 Initial configuration is done using https://github.com/hkbakke/qubes-wireguard. Wireguard is the preferred software. 
+
+## Traffic Routing
+It is strongly recommended to route all traffic through your VPN. This includes updates, clock, whonix, and all qubes except sys-net.
+
+1. Open Qubes Global Settings in dom0
+2. Under "qube defaults" change the following to your vpn firewall qubes "sys-vpn"
+    1. Dom0 Update qube (All updates in dom0 will be fetched via vpn)
+    2. Clock qube (Clock will be updated via vpn)
+    3. net qube (Route all traffic from vms through vpn, unless changed)
 
 ## Changing System Time
 **You must change your system time to match your VPN. Failing to do so will reveal your real location to websites.**
@@ -59,7 +67,7 @@ Additional VPN providers can be setup. It is strongly recommended to daisy chain
 # Updates proxy
 Updates should be fetched via the vpn qubes and not sys-net. An alternative is to fetch updates over Tor using sys-whonix.
 
-1. Open Qube Manager
+1. Open Qube Manager in dom0
 2. Open settings for your vpn qubes (ex: sys-mullvad)
 3. Go to "Services"
 4. Add service "qubes-update-proxy"
