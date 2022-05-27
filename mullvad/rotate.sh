@@ -4,7 +4,7 @@
 ACCOUNT_FILE="/home/user/mullvad.txt"
 
 # Wireguard configuration file
-CONFIG="/etc/wireguard/wg0.conf"
+CONFIG="/rw/config/wireguard/wg0.conf"
 
 # Mullvad certificate
 MULLVAD_CERT="certificate.pem"
